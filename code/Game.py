@@ -3,6 +3,7 @@
 import pygame
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT
+from code.Level import Level
 from code.Menu import Menu
 
 
@@ -16,4 +17,7 @@ class Game:
     def run(self):
         while True:
             menu = Menu(self.window)
-            menu.run()
+            result = menu.run()
+            if result == 'Jogar':
+                level = Level(self.window, 'cenario1')
+                level.run()

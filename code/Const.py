@@ -22,3 +22,8 @@ MENU_OPTION = (
     'Sobre o Jogo',
     'Sair',
 )
+
+# G - Game world
+TILE_SIZE = 48
+WORLD_TILES = 50
+PLAYER_MOVE_DELAY = 8  # frames between steps when key held

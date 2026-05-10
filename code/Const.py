@@ -8,10 +8,11 @@ C_BLACK = (0, 0, 0)
 C_GREEN = (0, 200, 80)
 C_CYAN = (0, 200, 200)
 C_GOLD = (255, 215, 0)
+C_DARK_GRAY = (60, 60, 60)
 
 # W - Window
 WIN_WIDTH = 576
-WIN_HEIGHT = 324
+WIN_HEIGHT = 360
 
 # M - Menu
 MENU_OPTION = (
@@ -19,4 +20,5 @@ MENU_OPTION = (
     'Como Jogar',
     'Recordes',
     'Sobre o Jogo',
+    'Sair',
 )

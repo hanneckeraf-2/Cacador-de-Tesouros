@@ -186,7 +186,7 @@ class Menu:
                         return
 
     def show_records(self):
-        panel_w, panel_h = 420, 225
+        panel_w, panel_h = 440, 225
         panel_x = (WIN_WIDTH - panel_w) // 2
         panel_y = (WIN_HEIGHT - panel_h) // 2
 
@@ -195,9 +195,10 @@ class Menu:
 
         records = Score().retrieve_top5()
 
-        col_name  = panel_x + 20
-        col_score = panel_x + 165
-        col_date  = panel_x + 255
+        col_name  = panel_x + 16
+        col_level = panel_x + 152
+        col_score = panel_x + 210
+        col_date  = panel_x + 300
 
         while True:
             self._draw_menu(menu_option=-1)
@@ -214,23 +215,22 @@ class Menu:
                              (panel_x + 16, panel_y + 42),
                              (panel_x + panel_w - 16, panel_y + 42))
 
-            self.menu_text(13, 'NOME', C_YELLOW, (col_name, panel_y + 52),
-                           outline_color=C_BLACK, center=False)
-            self.menu_text(13, 'PLACAR', C_YELLOW, (col_score, panel_y + 52),
-                           outline_color=C_BLACK, center=False)
-            self.menu_text(13, 'DATA', C_YELLOW, (col_date, panel_y + 52),
-                           outline_color=C_BLACK, center=False)
+            self.menu_text(13, 'NOME',   C_YELLOW, (col_name,  panel_y + 52), outline_color=C_BLACK, center=False)
+            self.menu_text(13, 'NÍVEL',  C_YELLOW, (col_level, panel_y + 52), outline_color=C_BLACK, center=False)
+            self.menu_text(13, 'PLACAR', C_YELLOW, (col_score, panel_y + 52), outline_color=C_BLACK, center=False)
+            self.menu_text(13, 'DATA',   C_YELLOW, (col_date,  panel_y + 52), outline_color=C_BLACK, center=False)
 
             pygame.draw.line(self.window, C_DARK_GRAY,
                              (panel_x + 16, panel_y + 68),
                              (panel_x + panel_w - 16, panel_y + 68))
 
             if records:
-                for i, (name, score, date) in enumerate(records):
+                for i, (name, score, level, date) in enumerate(records):
                     y = panel_y + 78 + i * 26
-                    self.menu_text(13, str(name),          C_WHITE, (col_name,  y), outline_color=C_BLACK, center=False)
-                    self.menu_text(13, f'{score:>6}',      C_WHITE, (col_score, y), outline_color=C_BLACK, center=False)
-                    self.menu_text(13, str(date),          C_WHITE, (col_date,  y), outline_color=C_BLACK, center=False)
+                    self.menu_text(13, str(name),     C_WHITE, (col_name,  y), outline_color=C_BLACK, center=False)
+                    self.menu_text(13, str(level),    C_WHITE, (col_level, y), outline_color=C_BLACK, center=False)
+                    self.menu_text(13, f'{score:>6}', C_WHITE, (col_score, y), outline_color=C_BLACK, center=False)
+                    self.menu_text(13, str(date),     C_WHITE, (col_date,  y), outline_color=C_BLACK, center=False)
             else:
                 self.menu_text(14, 'Nenhum recorde registrado ainda.', C_WHITE,
                                (WIN_WIDTH / 2, panel_y + 130), outline_color=C_BLACK, center=True)

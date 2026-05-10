@@ -13,9 +13,9 @@ def get_formatted_date() -> str:
 
 
 class Score:
-    def save(self, name: str, score: int):
+    def save(self, name: str, score: int, level: int):
         db = DBProxy(DB_NAME)
-        db.save({'name': name, 'score': score, 'date': get_formatted_date()})
+        db.save({'name': name, 'score': score, 'level': level, 'date': get_formatted_date()})
         db.close()
 
     def retrieve_top5(self) -> list:
